@@ -1,5 +1,5 @@
 # PHPSWOCKET
-PHPSWOCKET is a php [Swoole](https://www.swoole.co.uk/) websocket implentation
+PHPSWOCKET is a php [Swoole](https://www.swoole.co.uk/) websocket implementation
 
 ### Installation
 1. Install [Swoole](https://www.swoole.co.uk/) 
