@@ -24,6 +24,7 @@ class WebSocket extends Server
     const ONOPEN    = "open";
     const ONCLOSE   = "close";
     const ONMESSAGE = "message";
+    const ONREQUEST = "request";
 
     public static function initWebSocket(
         string $host,
