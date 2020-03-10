@@ -1,6 +1,7 @@
 <?php
 
 use Internal\Usecase\Context;
+use Internal\Usecase\ONRequest;
 use Internal\Usecase\WebSocket;
 use Internal\Usecase\ONOpenListener;
 use Internal\Usecase\SocketListener;
@@ -15,6 +16,7 @@ $socketListener->onStartListener(new ONStartListener);
 $socketListener->onOpenListener(new ONOpenListener);
 $socketListener->onMessageListener(new ONMessageListener);
 $socketListener->onCloseListener(new ONCloseListener);
+$socketListener->onRequestListener(new ONRequest);
 
 $ws = WebSocket::initWebSocket(
     "127.0.0.1",

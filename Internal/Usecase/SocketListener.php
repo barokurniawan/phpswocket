@@ -38,6 +38,11 @@ class SocketListener implements \Internal\Contract\SocketListener
         $this->map(WebSocket::ONMESSAGE, $event);
     }
 
+    public function onRequestListener(\Internal\Contract\Event $event)
+    {
+        $this->map(WebSocket::ONREQUEST, $event);
+    }
+
     public function map(string $key, Event $event)
     {
         $this->mapListener[$key] = $event;
