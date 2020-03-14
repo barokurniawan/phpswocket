@@ -12,6 +12,11 @@ interface SocketListener
 
     public function onMessageListener(Event $event);
 
+    /**
+     * listen to http request
+     */
+    public function onRequestListener(Event $event);
+
     public function map(string $key, Event $event);
 
     /**

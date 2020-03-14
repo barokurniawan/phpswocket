@@ -24,17 +24,19 @@ class WebSocket extends Server
     const ONOPEN    = "open";
     const ONCLOSE   = "close";
     const ONMESSAGE = "message";
+    const ONREQUEST = "request";
 
-    public static function initWebSocket(
-        string $host,
-        int $port,
-        Context $context,
-        SocketListener $socketListener
-    ) {
+    public function __construct(string $host, int $port, Context $context, SocketListener $socketListener)
+    {
+        parent::__construct($host, $port);
+        $this->setContext($context);
+        $this->setListener($socketListener);
+    }
+
+    public static function initWebSocket(string $host, int $port, Context $context, SocketListener $socketListener)
+    {
         if (empty(self::$instance)) {
-            self::$instance = new self($host, $port);
-            self::$instance->setContext($context);
-            self::$instance->setListener($socketListener);
+            self::$instance = new self($host, $port, $context, $socketListener);
         }
 
         return self::$instance;
