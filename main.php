@@ -1,5 +1,6 @@
 <?php
 
+use M1\Env\Parser;
 use Internal\Usecase\Context;
 use Internal\Usecase\WebSocket;
 use Internal\Usecase\ONOpenListener;
@@ -10,6 +11,7 @@ use Internal\Usecase\ONMessageListener;
 
 require_once __DIR__ . "/vendor/autoload.php";
 
+$env = Parser::parse(file_get_contents(".env"));
 $socketListener = SocketListener::newSocketListener();
 $socketListener->onStartListener(new ONStartListener);
 $socketListener->onOpenListener(new ONOpenListener);
@@ -17,8 +19,8 @@ $socketListener->onMessageListener(new ONMessageListener);
 $socketListener->onCloseListener(new ONCloseListener);
 
 $ws = WebSocket::initWebSocket(
-    "127.0.0.1",
-    3000,
+    $env['SERVER_ADDR'],
+    $env['SERVER_PORT'],
     new Context,
     $socketListener
 );
