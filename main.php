@@ -22,6 +22,8 @@ $socketListener->onRequestListener(new ONRequest);
 
 /**
  * form user
+ * 
+ * form master ODT
  */
 
 $ws = WebSocket::initWebSocket(
